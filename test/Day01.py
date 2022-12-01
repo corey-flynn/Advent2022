@@ -1,7 +1,6 @@
 import logging
-import pytest
 
-from advent.Day1.workers import get_elf_dict, part_one, part_two
+from advent.Day01.workers import get_elf_dict, part_one, part_two
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
