@@ -15,19 +15,13 @@ def get_elf_dict(elf_food) -> dict:
 
 
 @timing
-def part_one(elf_food):
-    """return the value of the elf with the most food"""
-    return max(get_elf_dict(elf_food).values())
-
-
-@timing
-def part_two(elf_food):
+def get_n_elves(elf_food, n: int = 3):
     """return the value of the three elves with the most food"""
-    return sum(sorted(get_elf_dict(elf_food).values())[-3:])
+    return sum(sorted(get_elf_dict(elf_food).values())[-n:])
 
 
 if __name__ == '__main__':
-    with open('input.txt', 'r') as f:
+    with open('../resources/day_01.txt', 'r') as f:
         elf_list = f.read().split('\n')
-    LOGGER.info(f'PART ONE ANSWER: {part_one(elf_list)}')  # 67027
-    LOGGER.info(f'PART TWO ANSWER: {part_two(elf_list)}')  # 197291
+    LOGGER.info(f'PART ONE ANSWER: {get_n_elves(elf_list, 1)}')  # 67027
+    LOGGER.info(f'PART TWO ANSWER: {get_n_elves(elf_list, 3)}')  # 197291

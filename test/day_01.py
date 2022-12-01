@@ -1,9 +1,4 @@
-import logging
-
-from advent.Day01.workers import get_elf_dict, part_one, part_two
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+from advent.calendar.day_01 import get_elf_dict, get_n_elves
 
 
 def _input():
@@ -23,7 +18,7 @@ def _input():
 10000""".split('\n')
 
 
-def _get_elf_dict():
+def _expected_get_elf_dict():
     return {
         0: 6_000,
         1: 4_000,
@@ -36,14 +31,14 @@ def _get_elf_dict():
 def test_get_elf_dict():
     elf_list = _input()
     actual = get_elf_dict(elf_list)
-    expected = _get_elf_dict()
+    expected = _expected_get_elf_dict()
 
     assert actual == expected
 
 
 def test_part_one():
     elf_list = _input()
-    actual = part_one(elf_list)
+    actual = get_n_elves(elf_list, 1)
     expected = 24_000
 
     assert actual == expected
@@ -51,7 +46,7 @@ def test_part_one():
 
 def test_part_two():
     elf_list = _input()
-    actual = part_two(elf_list)
+    actual = get_n_elves(elf_list, 3)
     expected = 45_000
 
     assert actual == expected
