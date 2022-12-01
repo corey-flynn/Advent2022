@@ -1,0 +1,11 @@
+# pytest creates a bunch of extra files
+# so we'll ignore everything in this directory
+*
+
+# except for ...
+# this file
+!.gitignore
+# directories
+!*/
+# python files
+!*.py
