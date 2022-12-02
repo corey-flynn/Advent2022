@@ -1,9 +1,10 @@
 from collections import defaultdict
+from typing import Iterable
 
 from advent.utilities import LOGGER, timing
 
 
-def get_elf_dict(elf_food) -> dict:
+def get_elf_dict(elf_food: Iterable) -> dict:
     counter = 0
     elf_dict = defaultdict(lambda: 0)
     for food in elf_food:
@@ -15,8 +16,13 @@ def get_elf_dict(elf_food) -> dict:
 
 
 @timing
-def get_n_elves(elf_food, n: int = 3):
-    """return the value of the three elves with the most food"""
+def get_n_elves(elf_food: Iterable, n: int = 3) -> int:
+    """
+    return the sum of food from the elves with the n most
+    :param elf_food: iterable from input
+    :param n: number of elves to sum food
+    :return: sum of food from n top elves
+    """
     return sum(sorted(get_elf_dict(elf_food).values())[-n:])
 
 

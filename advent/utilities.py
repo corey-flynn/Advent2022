@@ -20,7 +20,3 @@ def timing(f: callable):
         LOGGER.info(f'func:{f.__name__} took: {te-ts:2.4f} sec')
         return result
     return wrap
-
-
-def str_to_list():
-    pass
