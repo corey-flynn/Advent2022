@@ -20,3 +20,17 @@ def timing(f: callable):
         LOGGER.info(f'func:{f.__name__} took: {te-ts:2.4f} sec')
         return result
     return wrap
+
+
+def range_inc(*args):
+    """
+    range including the max number
+    :param args: same arguments passed to range builtin
+    :return: range generator
+    """
+    args = list(args)
+    if len(args) >= 1:
+        args[1] += 1
+    else:
+        args[0] += 1
+    return range(*args)
