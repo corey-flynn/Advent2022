@@ -4,7 +4,6 @@ from advent.utilities import LOGGER, timing
 def get_unique_chars(message, chars):
     for i in range(len(message)):
         if len(set(message[i:i+chars])) == chars:
-            print(message[i:i+chars])
             return i + chars
 
 
