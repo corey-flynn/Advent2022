@@ -1,4 +1,5 @@
 from enum import Enum
+from functools import lru_cache
 
 from advent.utilities import LOGGER, timing
 
@@ -10,30 +11,20 @@ class Dir(Enum):
     R = (1, 0)
 
 
+@lru_cache
 def tail_follow(head, tail):
     diff = tuple(x[0] - x[1] for x in zip(head, tail))
-    match diff:
-        case (2, 0):
-            return tail[0] + 1, tail[1]
-        case (-2, 0):
-            return tail[0] - 1, tail[1]
-        case (0, 2):
-            return tail[0], tail[1] + 1
-        case (0, -2):
-            return tail[0], tail[1] - 1
-        case (2, 1) | (1, 2) | (2, 2):
-            return tail[0] + 1, tail[1] + 1
-        case (-2, -1) | (-1, -2) | (-2, -2):
-            return tail[0] - 1, tail[1] - 1
-        case (1, -2) | (2, -1) | (2, -2):
-            return tail[0] + 1, tail[1] - 1
-        case (-1, 2) | (-2, 1) | (-2, 2):
-            return tail[0] - 1, tail[1] + 1
-        case _:
-            return tail
+    if any(abs(x) > 1 for x in diff):
+        return tuple(
+            tail[i] + 1 if x > 0 else tail[i] - 1 if x < 0 else tail[i]
+            for i, x in enumerate(diff)
+        )
+    return tail
 
 
 def followers(directions, rope_len=1):
+    if rope_len < 1:
+        return []
     head_xy = (0, 0)
     head_path = list()
     for dir_, len_ in directions:
