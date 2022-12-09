@@ -1,10 +1,14 @@
+"""
+https://adventofcode.com/2022/day/1
+--- Day 1: Calorie Counting ---
+"""
 from collections import defaultdict
-from typing import Iterable
+from typing import Dict, Iterable
 
 from advent.utilities import LOGGER, timing
 
 
-def get_elf_dict(elf_food: Iterable) -> dict:
+def get_elf_dict(elf_food: Iterable) -> Dict[int, int]:
     counter = 0
     elf_dict = defaultdict(lambda: 0)
     for food in elf_food:

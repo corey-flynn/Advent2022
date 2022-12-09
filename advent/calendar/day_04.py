@@ -1,10 +1,14 @@
+"""
+https://adventofcode.com/2022/day/4
+--- Day 4: Camp Cleanup ---
+"""
 import csv
 from typing import List
 
 from advent.utilities import range_inc, timing, LOGGER
 
 
-def get_range_sets(*args: List[int]):
+def get_range_sets(*args: List[int]) -> List:
     ret = list()
     for arg in args:
         ret.append(set(range_inc(*arg)))
@@ -12,7 +16,7 @@ def get_range_sets(*args: List[int]):
 
 
 @timing
-def part_one(assignments: List[List[List[int]]]):
+def part_one(assignments: List[List[List[int]]]) -> int:
     counter = 0
     for pair in assignments:
         ranges = get_range_sets(*pair)
@@ -22,7 +26,7 @@ def part_one(assignments: List[List[List[int]]]):
 
 
 @timing
-def part_two(assignments: List[List[List[int]]]):
+def part_two(assignments: List[List[List[int]]]) -> int:
     counter = 0
     for pair in assignments:
         ranges = get_range_sets(*pair)

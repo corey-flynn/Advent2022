@@ -1,19 +1,23 @@
+"""
+https://adventofcode.com/2022/day/6
+--- Day 6: Tuning Trouble ---
+"""
 from advent.utilities import LOGGER, timing
 
 
-def get_unique_chars(message, chars):
+def get_unique_chars(message: str, chars: int) -> int:
     for i in range(len(message)):
         if len(set(message[i:i+chars])) == chars:
             return i + chars
 
 
 @timing
-def part_one(signal):
+def part_one(signal: str) -> int:
     return get_unique_chars(signal, 4)
 
 
 @timing
-def part_two(signal):
+def part_two(signal: str) -> int:
     return get_unique_chars(signal, 14)
 
 

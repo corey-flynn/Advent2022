@@ -1,9 +1,13 @@
-from typing import List
+"""
+https://adventofcode.com/2022/day/8
+--- Day 8: Treetop Tree House ---
+"""
+from typing import Iterable, List
 
 from advent.utilities import LOGGER, timing
 
 
-def takewhile_plusone(predicate, iterable):
+def takewhile_plusone(predicate: callable, iterable: Iterable):
     """same as the itertools version, but grabs an extra if available"""
     for x in iterable:
         yield x
@@ -11,7 +15,7 @@ def takewhile_plusone(predicate, iterable):
             break
 
 
-def get_next_biggest(l, i) -> float:
+def get_next_biggest(l: List[int], i) -> float:
     """
     get the product of the number of values that are lower to a particular index
     on both the right and the left

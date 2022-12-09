@@ -1,3 +1,7 @@
+"""
+https://adventofcode.com/2022/day/3
+--- Day 3: Rucksack Reorganization ---
+"""
 from typing import List
 from string import ascii_letters
 
@@ -7,7 +11,7 @@ from advent.utilities import LOGGER
 PRIORITY = dict(zip(ascii_letters, range(1, len(ascii_letters) + 1)))
 
 
-def part_one(rucksacks: List[str]):
+def part_one(rucksacks: List[str]) -> int:
     counter = 0
     for el in rucksacks:
         half = len(el) // 2
@@ -16,7 +20,7 @@ def part_one(rucksacks: List[str]):
     return counter
 
 
-def part_two(rucksacks: List[str]):
+def part_two(rucksacks: List[str]) -> int:
     counter = 0
     for i in range(len(rucksacks) // 3):
         r = i * 3

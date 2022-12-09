@@ -1,3 +1,7 @@
+"""
+https://adventofcode.com/2022/day/5
+--- Day 5: Supply Stacks ---
+"""
 import re
 from copy import deepcopy
 from typing import Dict, List
@@ -42,7 +46,7 @@ def move_crates(
     )
 
 
-def part_one(stacks: List[str], moves: List[str]):
+def part_one(stacks: List[str], moves: List[str]) -> str:
     """move crates from stacks one at a time"""
     stack_dict = read_crates(stacks)
     for move in moves:
@@ -50,7 +54,7 @@ def part_one(stacks: List[str], moves: List[str]):
     return ''.join(x[-1] for x in stack_dict.values())
 
 
-def part_two(stacks: List[str], moves: List[str]):
+def part_two(stacks: List[str], moves: List[str]) -> str:
     """move crates from stacks while retraining order"""
     stack_dict = read_crates(stacks)
     for move in moves:

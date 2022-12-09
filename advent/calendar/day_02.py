@@ -1,3 +1,7 @@
+"""
+https://adventofcode.com/2022/day/2
+--- Day 2: Rock Paper Scissors ---
+"""
 from copy import deepcopy
 from enum import IntEnum
 from typing import List
@@ -24,7 +28,7 @@ CODE_MAP = {
 }
 
 
-def rps(opp: ShapeScore, you: ShapeScore):
+def rps(opp: ShapeScore, you: ShapeScore) -> int:
     if opp == you:
         return 3 + you
     if WINS[you] == opp:
@@ -34,7 +38,7 @@ def rps(opp: ShapeScore, you: ShapeScore):
 
 
 @timing
-def part_one(guide: List[List[str]]):
+def part_one(guide: List[List[str]]) -> int:
     guide = deepcopy(guide)
     counter = 0
     for game in guide:
@@ -45,7 +49,7 @@ def part_one(guide: List[List[str]]):
 
 
 @timing
-def part_two(guide: List[List[str]]):
+def part_two(guide: List[List[str]]) -> int:
     guide = deepcopy(guide)
     counter = 0
     for game in guide:

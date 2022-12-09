@@ -1,5 +1,10 @@
+"""
+https://adventofcode.com/2022/day/9
+--- Day 9: Rope Bridge ---
+"""
 from enum import Enum
 from functools import lru_cache
+from typing import List, Tuple
 
 from advent.utilities import LOGGER, timing
 
@@ -12,7 +17,7 @@ class Dir(Enum):
 
 
 @lru_cache
-def tail_follow(head, tail):
+def tail_follow(head: Tuple[int], tail: Tuple[int]) -> Tuple[int]:
     diff = tuple(x[0] - x[1] for x in zip(head, tail))
     if any(abs(x) > 1 for x in diff):
         return tuple(
@@ -22,7 +27,7 @@ def tail_follow(head, tail):
     return tail
 
 
-def followers(directions, rope_len=1):
+def followers(directions: List[str], rope_len=1) -> List[Tuple[int]]:
     if rope_len < 1:
         return []
     head_xy = (0, 0)
@@ -44,12 +49,12 @@ def followers(directions, rope_len=1):
 
 
 @timing
-def part_one(directions):
+def part_one(directions: List[str]) -> int:
     return len(set(followers(directions)))
 
 
 @timing
-def part_two(directions):
+def part_two(directions: List[str]) -> int:
     return len(set(followers(directions, 9)))
 
 
