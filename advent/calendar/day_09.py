@@ -27,7 +27,7 @@ def tail_follow(head: Tuple[int], tail: Tuple[int]) -> Tuple[int]:
     return tail
 
 
-def followers(directions: List[str], rope_len=1) -> List[Tuple[int]]:
+def followers(directions: List[List[str]], rope_len=1) -> List[Tuple[int]]:
     if rope_len < 1:
         return []
     head_xy = (0, 0)
@@ -49,12 +49,12 @@ def followers(directions: List[str], rope_len=1) -> List[Tuple[int]]:
 
 
 @timing
-def part_one(directions: List[str]) -> int:
+def part_one(directions: List[List[str]]) -> int:
     return len(set(followers(directions)))
 
 
 @timing
-def part_two(directions: List[str]) -> int:
+def part_two(directions: List[List[str]]) -> int:
     return len(set(followers(directions, 9)))
 
 
