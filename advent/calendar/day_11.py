@@ -4,9 +4,8 @@ https://adventofcode.com/2022/day/11
 """
 import operator
 import re
-from functools import lru_cache
 from math import prod
-from typing import Dict, List
+from typing import List
 
 from advent.utilities import LOGGER, timing
 
