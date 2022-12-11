@@ -26,7 +26,7 @@ def part_one(reg: List[str]) -> int:
                 ret_list.append(counter * cycle)
         else:
             _, val = inst.split()
-            for _ in range(cycle, cycle+2):
+            for _ in range(2):
                 cycle += 1
                 if (cycle - 20) % 40 == 0:
                     ret_list.append(counter * cycle)
@@ -53,7 +53,7 @@ def part_two(reg) -> str:
             cycle += 1
         else:
             _, val = inst.split()
-            for _ in range(cycle, cycle+2):
+            for _ in range(2):
                 if cycle % 40 in range(counter-1, counter+2):
                     ret_list[cycle // 40][cycle % 40] = '#'
                 cycle += 1
