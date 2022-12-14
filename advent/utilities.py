@@ -2,7 +2,7 @@ import logging
 import heapq
 from functools import wraps
 from time import time
-from typing import Dict
+from typing import Dict, Iterable
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 LOGGER = logging.getLogger()
@@ -31,7 +31,7 @@ def range_inc(*args):
     :return: range generator
     """
     args = list(args)
-    if len(args) >= 1:
+    if len(args) > 1:
         args[1] += 1
     else:
         args[0] += 1
@@ -63,3 +63,12 @@ def dijkstra(graph: Dict[tuple, Dict[tuple, int]], start: tuple, end: tuple) -> 
                 distances[adj_node] = distance
                 heapq.heappush(queue, (distance, adj_node))
     return distances[end]
+
+
+def to_ints(i: Iterable[str]) -> tuple:
+    """
+    build a tuple of integers from some iterable of strings
+    :param i: iterable
+    :return: tuple of integers
+    """
+    return tuple(int(x) for x in i)
