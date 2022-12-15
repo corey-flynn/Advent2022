@@ -1,5 +1,6 @@
 import logging
 import heapq
+import operator
 from functools import wraps
 from time import time
 from typing import Dict, Iterable
@@ -72,3 +73,10 @@ def to_ints(i: Iterable[str]) -> tuple:
     :return: tuple of integers
     """
     return tuple(int(x) for x in i)
+
+
+def manhattan_distance(point_a: Iterable[int], point_b: Iterable[int]) -> int:
+    """
+    find a manhattan distance between two points
+    """
+    return sum(abs(operator.sub(*x)) for x in zip(point_a, point_b))
