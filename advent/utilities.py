@@ -3,7 +3,7 @@ import heapq
 import operator
 from functools import wraps
 from time import time
-from typing import Dict, Iterable
+from typing import Dict, Iterable, Union
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 LOGGER = logging.getLogger()
@@ -39,7 +39,11 @@ def range_inc(*args):
     return range(*args)
 
 
-def dijkstra(graph: Dict[tuple, Dict[tuple, int]], start: tuple, end: tuple) -> int:
+def dijkstra(
+        graph: Dict[tuple, Dict[tuple, int]],
+        start,
+        end=None,
+) -> Union[int, dict]:
     """
     dijkstra's shortest path algorithm
     :param graph: nested dictionary of points to points with distance / weights
@@ -63,7 +67,9 @@ def dijkstra(graph: Dict[tuple, Dict[tuple, int]], start: tuple, end: tuple) -> 
             if distances[adj_node] > distance:
                 distances[adj_node] = distance
                 heapq.heappush(queue, (distance, adj_node))
-    return distances[end]
+    if end:
+        return distances[end]
+    return distances
 
 
 def to_ints(i: Iterable[str]) -> tuple:
