@@ -12,8 +12,8 @@ def test_part_one():
     assert expected == actual
 
 
-def test_part_two():
-    expected = None
-    actual = part_two(_input(), 2022)
-
-    assert expected == actual
+# def test_part_two():
+#     expected = None
+#     actual = part_two(_input(), 2022)
+#
+#     assert expected == actual
