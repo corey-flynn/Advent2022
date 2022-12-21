@@ -46,9 +46,9 @@ def resource_bfs(bp_dict: Dict[str, Dict[str, int]], time: int):
     # stop creating new machines if the sum of the costs of outputs equals the
     # number of robots
     resource_maxes = {
-        'ore': 1 * sum((x['ore'] for x in bp_dict.values())),
-        'clay': 1 * sum((x['clay'] for x in bp_dict.values())),
-        'obsidian': 1 * sum((x['obsidian'] for x in bp_dict.values())),
+        'ore': 1.5 * sum((x['ore'] for x in bp_dict.values())),
+        'clay': 1.5 * sum((x['clay'] for x in bp_dict.values())),
+        'obsidian': 1.5 * sum((x['obsidian'] for x in bp_dict.values())),
         'geode': float('inf'),
     }
     # also don't make new machines when a certain number of geode machines have been

@@ -17,7 +17,7 @@ def test_part_one():
     assert expected == actual
 
 
-# @pytest.mark.skip
+@pytest.mark.skip
 def test_part_two():
     expected = 56 * 62
     actual = part_two(_input())
