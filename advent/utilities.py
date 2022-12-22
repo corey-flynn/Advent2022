@@ -86,3 +86,8 @@ def manhattan_distance(point_a: Iterable[int], point_b: Iterable[int]) -> int:
     find a manhattan distance between two points
     """
     return sum(abs(operator.sub(*x)) for x in zip(point_a, point_b))
+
+
+def key_by_val(d: dict, val):
+    """return a dictionary key by its value"""
+    return list(d.keys())[list(d.values()).index(val)]
